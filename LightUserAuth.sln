@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightUserAuth", "LightUserAuth.csproj", "{13833A0B-076E-4E91-82F7-0CF59B2EB55B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13833A0B-076E-4E91-82F7-0CF59B2EB55B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13833A0B-076E-4E91-82F7-0CF59B2EB55B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13833A0B-076E-4E91-82F7-0CF59B2EB55B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13833A0B-076E-4E91-82F7-0CF59B2EB55B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A5F9827-8ACC-45BC-9B6C-BD89739397E4}
+	EndGlobalSection
+EndGlobal

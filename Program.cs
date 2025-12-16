@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Specialized;
 using BCrypt.Net;
 using System.Data.SqlClient;
+using System.Data;
 using Microsoft.Data.SqlClient;
 using LightUserAuth.DB;
 namespace HttpListenerExample
@@ -134,8 +135,17 @@ namespace HttpListenerExample
                         SqlTransaction transaction = connection.BeginTransaction();
                         try
                         {
-                            string command = $"Insert Into Users(Username, Password, Salt, Email) Values(\'{username}\', \'{hash}\', \'{salt}\', \'{email}\')";
-                            new SqlCommand(command, connection, transaction).ExecuteNonQuery();
+                            string command = $"Insert Into Users(Username, Password, Salt, Email) Values(@username, @password, @salt, @email)";
+                            SqlCommand com = new SqlCommand(command, connection, transaction);
+                            com.Parameters.Add("@username", SqlDbType.VarChar);
+                            com.Parameters["@username"].Value = username;
+                            com.Parameters.Add("@password", SqlDbType.VarChar);
+                            com.Parameters["@password"].Value = hash;
+                            com.Parameters.Add("@salt", SqlDbType.VarChar);
+                            com.Parameters["@salt"].Value = salt;
+                            com.Parameters.Add("@email", SqlDbType.VarChar);
+                            com.Parameters["@email"].Value = email;
+                            com.ExecuteNonQuery();
                             transaction.Commit();
                             data = Encoding.UTF8.GetBytes("{\"Success\":\"User created\"}");
                             usersContext.Add(new User() { Email = email, UserName = username, Password = hash, Salt = salt });
